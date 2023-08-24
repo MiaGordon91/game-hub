@@ -1,12 +1,14 @@
 import { useEffect, useState } from "react";
 import apiClient from "../services/api-client";
+import { ImageProps } from "@chakra-ui/react";
 
 //custom hook for fetching games
 
 //added interface to define the properties
-interface GamesArray {
+export interface GamesArray {
     id: number;
     name: string;
+    background_image: string;
   }
   
   interface FetchGamesResponse {

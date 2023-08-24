@@ -5,16 +5,15 @@ import GameGrid from './components/GameGrid'
 
 function App() {
   return <Grid
-  templateAreas={
-    {base: `"header"
+  templateAreas={{
+    base: `"header"
             "main"
             "footer"`,
-      lg:`"header header"
-      "aside main"
-      "aside footer"`}
-  }
-  gridTemplateColumns={'150px 1fr'}
-  gap='2'
+    lg:`"header header"
+    "aside main"
+    "aside footer"`
+    }}
+ 
   fontWeight='bold'
 >
   <GridItem pl='2' area={'header'}>
@@ -25,13 +24,14 @@ function App() {
   <GridItem pl='2' bg='#808080' area={'aside'}>
     Aside
   </GridItem>
+  </Show>
+
   <GridItem pl='2' area={'main'}>
     <GameGrid />
   </GridItem>
   <GridItem pl='2' bg='#A9A9A9' area={'footer'}>
     Footer
   </GridItem>
-  </Show>
 </Grid>
 
 }
