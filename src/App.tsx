@@ -14,7 +14,6 @@ function App() {
   }
   gridTemplateColumns={'150px 1fr'}
   gap='2'
-  color='blackAlpha.700'
   fontWeight='bold'
 >
   <GridItem pl='2' area={'header'}>
