@@ -30,17 +30,26 @@ const useGames = () => {
   // add state variables to manage state
   const [games, setGames] = useState<GamesArray[]>([]);
   const [error, setError] = useState('');
+  const [isLoading, setLoading] = useState(false);
 
   // called on the useEffect hook to send get request to app and return a res within
   // callback function
   useEffect(() => {
+
+    setLoading(true);
+
     apiClient
       .get<FetchGamesResponse>("/games")
-      .then(res => setGames(res.data.results))
-      .catch(err => setError(err.messsage));
+      .then((res) => {
+        setGames(res.data.results)
+        setLoading(false)
+      })
+      .catch((err) => {
+        setError(err.messsage)
+        setLoading(false)});
   }, []);
 
-  return {games, error};
+  return {games, error, isLoading};
 
 }
 
