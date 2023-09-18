@@ -3,7 +3,6 @@ import apiClient from "../services/api-client";
 import { ImageProps } from "@chakra-ui/react";
 
 //custom hook for fetching games
-
 //added interface to define the properties
 
 export interface Platform {
