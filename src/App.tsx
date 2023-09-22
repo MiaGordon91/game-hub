@@ -14,6 +14,11 @@ function App() {
     "aside main"
     "aside footer"`
     }}
+
+    templateColumns={{
+      base: "1fr",
+      lg: "200px 1fr"
+    }}
  
   fontWeight='bold'
 >
@@ -22,7 +27,7 @@ function App() {
   </GridItem>
 
   <Show above="lg">
-  <GridItem pl='2' bg='#808080' area={'aside'}>
+  <GridItem pl='2' area={'aside'} paddingX={5}>
     <GenreList />
   </GridItem>
   </Show>
