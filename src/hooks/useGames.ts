@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react";
-import apiClient from "../services/api-client";
-import { ImageProps } from "@chakra-ui/react";
+
+import useData from "./useData";
+import { Genres } from "./useGenres";
 
 //custom hook for fetching games
 //added interface to define the properties
@@ -19,37 +19,7 @@ export interface GamesArray {
     metacritic: number;
   }
   
-  interface FetchGamesResponse {
-    count: number;
-    results: GamesArray[];
-  }
 
-const useGames = () => {
-
-  // add state variables to manage state
-  const [games, setGames] = useState<GamesArray[]>([]);
-  const [error, setError] = useState('');
-  const [isLoading, setLoading] = useState(false);
-
-  // called on the useEffect hook to send get request to app and return a res within
-  // callback function
-  useEffect(() => {
-
-    setLoading(true);
-
-    apiClient
-      .get<FetchGamesResponse>("/games")
-      .then((res) => {
-        setGames(res.data.results)
-        setLoading(false)
-      })
-      .catch((err) => {
-        setError(err.messsage)
-        setLoading(false)});
-  }, []);
-
-  return {games, error, isLoading};
-
-}
+const useGames = (selectedGenre: Genres | null) => useData<GamesArray>('/games', { params: {genres : selectedGenre?.id }}, [selectedGenre?.id]);
 
 export default useGames;
