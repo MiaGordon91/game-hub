@@ -26,8 +26,7 @@ function App() {
               "main"
               "footer"`,
       lg:`"header header"
-      "aside main"
-      "aside footer"`
+      "aside main"`
       }}
 
       templateColumns={{
@@ -53,9 +52,6 @@ function App() {
     <SortSelector sortOrder={gameQuery.sortOrder} onSelectSortOrder={(sortOrder) => setGameQuery({...gameQuery, sortOrder})}/>
     </HStack>
     <GameGrid gameQuery={gameQuery}/>
-  </GridItem>
-  <GridItem pl='2' bg='#A9A9A9' area={'footer'}>
-    Footer
   </GridItem>
 </Grid>
 
